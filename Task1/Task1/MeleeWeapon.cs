@@ -13,5 +13,27 @@ namespace Task1
             Dagger, longsword
         }
 
+        public override int range { get => base.range; set => base.range = 1; }
+
+        public MeleeWeapon(Types melee,int x,int y)
+            :base('M',x,y)
+        {
+            switch (melee)
+            {
+                case Types.Dagger:
+                    weapontype = "Dagger";
+                    durability = 10;
+                    damage = 3;
+                    cost = 3;
+                    break;
+
+                case Types.longsword:
+                    weapontype = "longsword";
+                    durability = 6;
+                    damage = 4;
+                    cost = 5;
+                    break;
+            }
+        }
     }
 }
