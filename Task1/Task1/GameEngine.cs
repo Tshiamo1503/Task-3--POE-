@@ -89,5 +89,7 @@ namespace Task1
             mapDisplay = (Map)Bin.Deserialize(stream);
             stream.Close();
         }
+
+        //Shop shop = new Shop();
     }
 }

@@ -13,7 +13,7 @@ namespace Task1
             Rifle, Longbow
         }
 
-        public override int range { get => base.range; set => base.range = value; }
+        public override int range { get => base.range; set => base.range = Range; }
 
         public RangedWeapon(Types Range, int x, int y)
         : base('R', x, y)

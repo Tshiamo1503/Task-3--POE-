@@ -28,12 +28,32 @@ namespace Task1
             int weaponT = ran.Next(0, 4);
             MeleeWeapon melee;
             RangedWeapon ranged;
-            switch (weaponT)
+
+            if (weaponT == 0)
             {
-                case 0:
-                    break;
+                melee = new MeleeWeapon(MeleeWeapon.Types.Dagger, 0, 0);
+                return melee;
             }
-            return ;
+            else if (weaponT == 1)
+            {
+                melee = new MeleeWeapon(MeleeWeapon.Types.longsword, 0, 0);
+                return melee;
+            }
+            else if (weaponT == 2)
+            {
+                 ranged = new RangedWeapon(RangedWeapon.Types.Longbow,0,0);
+                return ranged;
+            }
+            else if (weaponT == 3)
+            {
+                 ranged = new RangedWeapon(RangedWeapon.Types.Rifle, 0, 0);
+                return ranged;
+            }
+            else
+            {
+                melee = new MeleeWeapon(MeleeWeapon.Types.Dagger, 0, 0);//========== if all else failes the default is a dagger 
+                return melee;
+            }
         }
 
         public bool CanBuy(int num)
@@ -51,7 +71,7 @@ namespace Task1
         {
             Buyer.gold -= weapons[num].cost;
 
-            //PickUp();
+            Buyer.Pickup(weapons[num]);
             RandomWeapon();
         }
 

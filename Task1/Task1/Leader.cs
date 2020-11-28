@@ -16,7 +16,7 @@ namespace Task1
 
         }
 
-        public override Movement ReturnMove(Movement move = Movement.Nothing)//////////////////============ complete
+        public override Movement ReturnMove(Movement move = Movement.Nothing)//////////////////============ need to finish leader movement
         {
             int Direction;
             Random ran = new Random();
