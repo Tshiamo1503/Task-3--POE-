@@ -13,6 +13,7 @@ namespace Task1
         private int damage;
         private char[,] vision;
         private int Goldpurse;
+        protected Weapon Weapon;
 
         public enum Movement { Nothing = 0, left, right, up, down }
 
@@ -28,6 +29,7 @@ namespace Task1
         protected int HP { get => hP; set => hP = value; }
         protected int Damage { get => damage; set => damage = value; }
         public int gold { get => Goldpurse; set => Goldpurse = value; }
+        public Weapon Weapons { get => Weapon; }
 
         public virtual void Attack(char target)
         {
@@ -115,13 +117,7 @@ namespace Task1
 
         public void Pickup(Item i)//================= still need to finish
         {
-            switch (i)
-            {
-                //case :
-                  //  break;
-                default:
-                    break;
-            }
+
         }
 
     }

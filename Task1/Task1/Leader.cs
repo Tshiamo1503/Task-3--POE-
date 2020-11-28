@@ -13,7 +13,7 @@ namespace Task1
 
         public Leader(int x,int y) :base(x,y,2,20,'L')
         {
-
+            this.Weapon = new MeleeWeapon(MeleeWeapon.Types.longsword, x, y);
         }
 
         public override Movement ReturnMove(Movement move = Movement.Nothing)//////////////////============ need to finish leader movement

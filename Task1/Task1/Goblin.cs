@@ -14,6 +14,7 @@ namespace Task1
             this.y = y;
             this.x = x;
             this.MAxHP = 10;
+            this.Weapon = new MeleeWeapon(MeleeWeapon.Types.Dagger, x, y);
         }
 
         public override Movement ReturnMove(Movement direction)
