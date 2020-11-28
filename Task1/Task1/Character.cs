@@ -12,6 +12,7 @@ namespace Task1
         private int mAxHP;
         private int damage;
         private char[,] vision;
+        private int Goldpurse;
 
         public enum Movement { Nothing = 0, left, right, up, down }
 
@@ -26,6 +27,7 @@ namespace Task1
         protected int MAxHP { get => mAxHP; set => mAxHP = value; }
         protected int HP { get => hP; set => hP = value; }
         protected int Damage { get => damage; set => damage = value; }
+        public int gold { get => Goldpurse; set => Goldpurse = value; }
 
         public virtual void Attack(char target)
         {
