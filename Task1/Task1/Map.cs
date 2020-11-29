@@ -33,7 +33,7 @@ namespace Task1
             }
 
 
-            for (int i = 0; i < enemies.Length; i++)
+            for (int i = 0; i < numEnemies; i++)
             {
               Create(Tile.TileType.Enemy);//enemy
             }
@@ -59,7 +59,14 @@ namespace Task1
             {
                 for (int j = 0; j < height; j++)
                 {
-                    Maptiles[j, i] = '.';
+                    if (j == 0 || i == 0 || j == Height - 1 || i == Width - 1)
+                    {
+                        Maptiles[j,i]= 'x';
+                    }
+                    else
+                    {
+                        Maptiles[j, i]='.';
+                    }
                 }
             }
         }
@@ -69,17 +76,18 @@ namespace Task1
             switch (type)
             {
                 case Tile.TileType.Hero://====================================================Hero
-                    Hero hero = new Hero(10,0,0);
+                    hero = new Hero(10,0,0);
                     while (Maptiles[hero.Y,hero.X] != '.')
                     {
                         Random ran = new Random();
                         hero.X = ran.Next(0, width);
                         hero.Y = ran.Next(0, Height);
                     }
+                    Character character = hero;
                     Maptiles[hero.Y,hero.X]= 'H';
                     return hero;
 
-                case Tile.TileType.Enemy://====================================================Hero
+                case Tile.TileType.Enemy://====================================================enemy
                     Random enemytype = new Random();
                     switch (enemytype.Next(0,3))
                     {
@@ -128,7 +136,7 @@ namespace Task1
 
                 case Tile.TileType.Gold://====================================================Gold
                     Gold gold = new Gold(0, 0);
-                    while (Maptiles[gold.Y, gold.X] == '.')
+                    while (Maptiles[gold.Y, gold.X] != '.')
                     {
                         Random ran = new Random();
                         gold.X = ran.Next(0, width);

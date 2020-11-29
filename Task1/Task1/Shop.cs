@@ -51,7 +51,7 @@ namespace Task1
             }
             else
             {
-                melee = new MeleeWeapon(MeleeWeapon.Types.Dagger, 0, 0);//========== if all else failes the default is a dagger 
+                melee = new MeleeWeapon(MeleeWeapon.Types.Dagger, 0, 0);//========== if all else fails the default is a dagger 
                 return melee;
             }
         }

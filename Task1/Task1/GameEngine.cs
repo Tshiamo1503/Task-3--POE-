@@ -18,7 +18,7 @@ namespace Task1
 
         public GameEngine()
         {
-           var MapDimensions = new Map(5,10,5,10,6,5,4);
+           var MapDimensions = new Map(8,10,8,10,10,10,5);
             mapDisplay = MapDimensions;
            ToString();
         }
@@ -45,14 +45,13 @@ namespace Task1
         }
 
         public override string ToString()
-        {
-            
+        {         
             string output= "";
             for (int i = 0; i < mapDisplay.Width; i++)
             {
                 for (int j = 0; j < mapDisplay.Height; j++)
                 {
-                    output += mapDisplay.Maptiles[j,i];
+                    output += mapDisplay.Maptiles[j, i];
                 }
                 output += "\n";
             }

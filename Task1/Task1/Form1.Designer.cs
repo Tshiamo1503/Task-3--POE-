@@ -36,7 +36,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.Statbox = new System.Windows.Forms.RichTextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnLoad = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -85,9 +85,10 @@
             // lblMap
             // 
             this.lblMap.AutoSize = true;
+            this.lblMap.Font = new System.Drawing.Font("SimSun", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMap.Location = new System.Drawing.Point(250, 9);
             this.lblMap.Name = "lblMap";
-            this.lblMap.Size = new System.Drawing.Size(20, 17);
+            this.lblMap.Size = new System.Drawing.Size(57, 28);
             this.lblMap.TabIndex = 4;
             this.lblMap.Text = "...";
             // 
@@ -120,17 +121,18 @@
             this.listBox1.Size = new System.Drawing.Size(123, 148);
             this.listBox1.TabIndex = 6;
             // 
-            // richTextBox1
+            // Statbox
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(253, 336);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(336, 96);
-            this.richTextBox1.TabIndex = 7;
-            this.richTextBox1.Text = "";
+            this.Statbox.Location = new System.Drawing.Point(253, 309);
+            this.Statbox.Name = "Statbox";
+            this.Statbox.Size = new System.Drawing.Size(336, 123);
+            this.Statbox.TabIndex = 7;
+            this.Statbox.Text = "";
+            this.Statbox.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(513, 301);
+            this.btnSave.Location = new System.Drawing.Point(514, 280);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 8;
@@ -140,7 +142,7 @@
             // 
             // btnLoad
             // 
-            this.btnLoad.Location = new System.Drawing.Point(513, 272);
+            this.btnLoad.Location = new System.Drawing.Point(514, 251);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(75, 23);
             this.btnLoad.TabIndex = 9;
@@ -155,7 +157,7 @@
             this.ClientSize = new System.Drawing.Size(639, 450);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.Statbox);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblMap);
             this.Controls.Add(this.btnRight);
@@ -180,7 +182,7 @@
         private System.Windows.Forms.Label lblMap;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox Statbox;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnLoad;
