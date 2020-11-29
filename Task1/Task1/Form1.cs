@@ -23,7 +23,8 @@ namespace Task1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            GameEngine gameEngine = new GameEngine();
+            lblMap.Text = gameEngine.ToString();
         }
 
         private void btnUp_Click(object sender, EventArgs e)

@@ -14,15 +14,13 @@ namespace Task1
     class GameEngine: ISerializable
     {
         private Map mapDisplay;
-
-        public Map Map
-        {
-            get { return mapDisplay; }
-        }
+        public Map Map{ get => mapDisplay;}
 
         public GameEngine()
         {
-           // var MapDimensions = new Map();
+           var MapDimensions = new Map(5,10,5,10,6,5,4);
+            mapDisplay = MapDimensions;
+           ToString();
         }
 
         public bool MovePlayer(Character.Movement direction)
@@ -46,9 +44,24 @@ namespace Task1
             return move;
         }
 
+        public override string ToString()
+        {
+            
+            string output= "";
+            for (int i = 0; i < mapDisplay.Width; i++)
+            {
+                for (int j = 0; j < mapDisplay.Height; j++)
+                {
+                    output += mapDisplay.Maptiles[j,i];
+                }
+                output += "\n";
+            }
+            return output;
+        }
+
         public void Save()// =============saving in binary format
         {
-            mapDisplay = new Map(5, 20, 5, 20, 10, 10);
+
 
             if (File.Exists("Map Data"))
             {

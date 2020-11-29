@@ -8,7 +8,7 @@ namespace Task1
 {
     class Map
     {
-        private char[,] Maptiles;
+        public char[,] Maptiles;
         Hero hero;
         private Enemy[] enemies;
         private Item[] Items;
@@ -23,16 +23,19 @@ namespace Task1
             this.enemies = new Enemy[numEnemies];
             this.Items = new Item[goldamount+numWeapons];
 
+            createmap();
+
             Create(Tile.TileType.Hero);//hero
 
             for (int i = 0; i < goldamount; i++)
             {
-              Items[i] =  Create(Tile.TileType.Gold);/////////=================for gold
+              Create(type: Tile.TileType.Gold);/////////=================for gold
             }
+
 
             for (int i = 0; i < enemies.Length; i++)
             {
-              enemies[i] = Create(Tile.TileType.Enemy);//enemy
+              Create(Tile.TileType.Enemy);//enemy
             }
 
             UpdateVision();
@@ -44,14 +47,21 @@ namespace Task1
         internal Enemy[] Enemies { get => enemies; set => enemies = value; }
         internal Item[] Items1 { get => Items; set => Items = value; }
 
-        public void Create()
-        {
-
-        }
 
         public void UpdateVision()
         {
 
+        }
+
+        public void createmap()
+        {
+            for (int i = 0; i < width; i++)
+            {
+                for (int j = 0; j < height; j++)
+                {
+                    Maptiles[j, i] = '.';
+                }
+            }
         }
 
         private Tile Create(Tile.TileType type)
@@ -66,6 +76,7 @@ namespace Task1
                         hero.X = ran.Next(0, width);
                         hero.Y = ran.Next(0, Height);
                     }
+                    Maptiles[hero.Y,hero.X]= 'H';
                     return hero;
 
                 case Tile.TileType.Enemy://====================================================Hero
@@ -80,6 +91,7 @@ namespace Task1
                                 enemy.X = ran.Next(0, width);
                                 enemy.Y = ran.Next(0, Height);
                             }
+                            Maptiles[enemy.Y, enemy.X] = 'G';
                             return enemy;
                         case 1:
                             Enemy enemy1 = new Mage(0, 0);
@@ -89,6 +101,7 @@ namespace Task1
                                 enemy1.X = ran.Next(0, width);
                                 enemy1.Y = ran.Next(0, Height);
                             }
+                            Maptiles[enemy1.Y, enemy1.X] = 'M';
                             return enemy1;
                         case 2:
                             Enemy enemy2 = new Leader(0, 0);
@@ -98,6 +111,7 @@ namespace Task1
                                 enemy2.X = ran.Next(0, width);
                                 enemy2.Y = ran.Next(0, Height);
                             }
+                            Maptiles[enemy2.Y, enemy2.X] = 'L';
                             return enemy2;
 
                         default:
@@ -108,6 +122,7 @@ namespace Task1
                                 enemyG.X = ran.Next(0, width);
                                 enemyG.Y = ran.Next(0, Height);
                             }
+                            Maptiles[enemyG.Y, enemyG.X] = 'G';
                             return enemyG;
                     }
 

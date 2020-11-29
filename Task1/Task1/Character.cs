@@ -115,10 +115,21 @@ namespace Task1
 
         public abstract override string ToString();
 
-        public void Pickup(Item i)//================= still need to finish
+        public void Pickup(Item i)
         {
-
+            if (i == Weapons)
+            {
+                Equip(Weapons);
+            }
+            else
+            {
+                Goldpurse += gold;
+            }
         }
 
+        private void Equip(Weapon w)
+        {
+           //  = w.weapontype;
+        }
     }
 }
