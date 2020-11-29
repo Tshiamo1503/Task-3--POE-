@@ -17,11 +17,33 @@ namespace Task1
             this.Weapon = new MeleeWeapon(MeleeWeapon.Types.Dagger, x, y);
         }
 
-        public override Movement ReturnMove(Movement direction)
+        public override Movement ReturnMove(Movement move)
         {
-            Random r = new Random();
-            int indexD =(r.Next(0, 5));
-            return direction;
+            int Direction;
+            Random ran = new Random();
+            Direction = ran.Next(0, 5);
+            switch (Direction)
+            {
+                case 0:
+                    move = Movement.down;
+                    break;
+                case 1:
+                    move = Movement.left;
+                    break;
+                case 2:
+                    move = Movement.Nothing;
+                    break;
+                case 3:
+                    move = Movement.right;
+                    break;
+                case 4:
+                    move = Movement.up;
+                    break;
+                default:
+                    move = Movement.Nothing;
+                    break;
+            }
+            return base.ReturnMove(move);
         }
 
     }

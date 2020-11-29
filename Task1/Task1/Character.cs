@@ -133,5 +133,19 @@ namespace Task1
             damage = w.damage;
             Weapons.durability = w.durability;
         }
+
+        public void loot()
+        {
+            if (HP==0)
+            {
+                this.Goldpurse += gold;
+                gold = 0;
+
+                if (this.Weapons.weapontype == null)
+                {
+                    this.Weapons.weapontype = Weapons.weapontype;
+                }
+            }
+        }
     }
 }
