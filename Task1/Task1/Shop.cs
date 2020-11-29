@@ -10,10 +10,11 @@ namespace Task1
     {
         private Weapon[] weapons;
         private Random ran;
-        private Character Buyer; 
+        private Character Buyer;
 
         public Shop(Character buyer)
         {
+            Buyer = buyer;
             this.weapons = new Weapon[3];
             ran = new Random();
 
@@ -77,8 +78,7 @@ namespace Task1
 
         public string DisplayWeapon(int num)
         {
-            string output = "Buy "+ weapons[num].weapontype+" ("+weapons[num].cost+")";
-
+            string output = "Buy "+ weapons[num].weapontype+" (cost: "+weapons[num].cost+" gold)";
             return (output);
         }
     }

@@ -28,7 +28,7 @@ namespace Task1
     }
         class Obstacle: Tile
         {
-        public Obstacle(int xpos, int ypos, TileType TileObject)
+        public Obstacle(int xpos, int ypos)
                 : base(xpos, ypos)
         {
 
@@ -38,7 +38,7 @@ namespace Task1
 
         class EmptyTile: Tile
         {
-        public EmptyTile(int x, int y, TileType ObjTile)
+        public EmptyTile(int x, int y)
                 : base(x, y)
         {
 

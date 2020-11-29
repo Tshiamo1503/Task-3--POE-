@@ -20,6 +20,36 @@ namespace Task1
         public override Movement ReturnMove(Movement move)
         {
             move = Movement.Nothing;
+
+            switch (move)
+            {
+                case Movement.Nothing:
+                    break;
+                case Movement.left:
+                    if (Vision[y,x-1]=='.')
+                    {
+                        move = Movement.left;
+                    }
+                    break;
+                case Movement.right:
+                    if (Vision[y, x + 1] == '.')
+                    {
+                        move = Movement.right;
+                    }
+                    break;
+                case Movement.up:
+                    if (Vision[y-1, x] == '.')
+                    {
+                        move = Movement.up;
+                    }
+                    break;
+                case Movement.down:
+                    if (Vision[y+1, x] == '.')
+                    {
+                        move = Movement.down;
+                    }
+                    break;
+            }
             return base.ReturnMove(move);
         }
 
