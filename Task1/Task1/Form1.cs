@@ -24,8 +24,7 @@ namespace Task1
         private void Form1_Load(object sender, EventArgs e)
         {
             lblMap.Text = Game.ToString();
-            
-            
+            Statbox.Text = Game.Map.hero.ToString();
         }
 
         private void btnUp_Click(object sender, EventArgs e)

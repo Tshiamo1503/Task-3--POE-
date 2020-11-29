@@ -129,7 +129,9 @@ namespace Task1
 
         private void Equip(Weapon w)
         {
-           //  = w.weapontype;
+            Weapons.weapontype = w.weapontype;
+            damage = w.damage;
+            Weapons.durability = w.durability;
         }
     }
 }

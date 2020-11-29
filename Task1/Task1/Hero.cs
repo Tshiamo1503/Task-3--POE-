@@ -25,7 +25,7 @@ namespace Task1
 
         public override string ToString()
         {
-            string output = "Player Stats" + "\n" + "HP: "+(this.HP/this.MAxHP)+" HP"+"\n"+"Damage: "+this.Damage+"\n"+"["+this.x+","+this.y+"]";
+            string output = "Player Stats" + "\n" + "HP: "+this.HP+"/"+this.MAxHP+" HP"+"\n"+"current weapon: "+ this.Weapons.weapontype+"\n"+"Range: "+this.Weapons.range+"\n"+"Damage: "+this.Damage+"\n"+"Durability: "+this.Weapons.durability+"\n"+"Gold: "+this.gold+"\n"+"["+this.x+","+this.y+"]";
             return output;
         }
     }

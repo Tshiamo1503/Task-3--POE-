@@ -9,11 +9,12 @@ namespace Task1
     class Map
     {
         public char[,] Maptiles;
-        Hero hero;
+        public Hero hero;
         private Enemy[] enemies;
         private Item[] Items;
         private int width, height;
         private Random randomize = new Random();
+        string stats;
 
         public Map(int minWidth, int maxWidth, int minHeight, int maxHeight,int numEnemies,int goldamount,int numWeapons)
         {
@@ -26,6 +27,7 @@ namespace Task1
             createmap();
 
             Create(Tile.TileType.Hero);//hero
+            stats = hero.ToString();
 
             for (int i = 0; i < goldamount; i++)
             {
@@ -85,6 +87,7 @@ namespace Task1
                     }
                     Character character = hero;
                     Maptiles[hero.Y,hero.X]= 'H';
+                    hero = new Hero(10, hero.X, hero.Y);
                     return hero;
 
                 case Tile.TileType.Enemy://====================================================enemy

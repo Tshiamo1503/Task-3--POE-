@@ -13,14 +13,13 @@ namespace Task1
     [Serializable()]
     class GameEngine: ISerializable
     {
-        private Map mapDisplay;
-        public Map Map{ get => mapDisplay;}
+        public Map Map { get; private set; }
 
         public GameEngine()
         {
-           var MapDimensions = new Map(8,10,8,10,10,10,5);
-            mapDisplay = MapDimensions;
-           ToString();
+            var MapDimensions = new Map(8, 10, 8, 10, 10, 10, 5);
+            Map = MapDimensions;
+            
         }
 
         public bool MovePlayer(Character.Movement direction)
@@ -47,11 +46,11 @@ namespace Task1
         public override string ToString()
         {         
             string output= "";
-            for (int i = 0; i < mapDisplay.Width; i++)
+            for (int i = 0; i < Map.Width; i++)
             {
-                for (int j = 0; j < mapDisplay.Height; j++)
+                for (int j = 0; j < Map.Height; j++)
                 {
-                    output += mapDisplay.Maptiles[j, i];
+                    output += Map.Maptiles[j, i];
                 }
                 output += "\n";
             }
@@ -67,7 +66,7 @@ namespace Task1
                 Stream stream = File.Open("Map-Data.dat", FileMode.Open);
                 BinaryFormatter Bin = new BinaryFormatter();
 
-                Bin.Serialize(stream, mapDisplay);
+                Bin.Serialize(stream, Map);
                 stream.Close();
             }
             else
@@ -75,7 +74,7 @@ namespace Task1
             Stream stream = File.Open("Map-Data.dat", FileMode.Create);
             BinaryFormatter Bin = new BinaryFormatter();
 
-            Bin.Serialize(stream, mapDisplay);
+            Bin.Serialize(stream, Map);
             stream.Close();
             }
         }
@@ -83,22 +82,22 @@ namespace Task1
         public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
             throw new NotImplementedException();
-            info.AddValue("Map-Display", mapDisplay);
+            info.AddValue("Map-Display", Map);
         }
 
         public GameEngine(SerializationInfo info, StreamingContext context)
         {
-            mapDisplay = (Map)info.GetValue("Map-Display", typeof(Map));
+            Map = (Map)info.GetValue("Map-Display", typeof(Map));
         }
 
         public void Load()
         {
-            mapDisplay = null;
+            Map = null;
 
             Stream stream = File.Open("Map-Data.dat", FileMode.Open);
             BinaryFormatter Bin = new BinaryFormatter();
 
-            mapDisplay = (Map)Bin.Deserialize(stream);
+            Map = (Map)Bin.Deserialize(stream);
             stream.Close();
         }
 
