@@ -12,12 +12,25 @@ namespace Task1
 {
     public partial class Form1 : Form
     {
-        GameEngine Game = new GameEngine();
-        
+       static GameEngine Game = new GameEngine();
+        Shop shop = new Shop(Game.Map.hero);
+        int weapon = 0;
+
+        public Form1()
+        {
+            InitializeComponent();
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
             lblMap.Text = Game.ToString();
             Statbox.Text = Game.Map.hero.ToString();
+
+            button2.Text = shop.DisplayWeapon(weapon);
+    
+            if (shop.CanBuy(0) == false|| shop.CanBuy(1) == false|| shop.CanBuy(2) == false)
+            {
+                button2.Enabled = false;
+            }
         }
 
         private void btnUp_Click(object sender, EventArgs e)
@@ -65,5 +78,19 @@ namespace Task1
 
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int choice = Convert.ToInt32(txtshopchoice.Text);
+
+            shop.Buy(choice);
+
+            Random ran = new Random();
+
+            if (weapon<3)
+            {
+                weapon++;
+            }
+            button2.Text = shop.DisplayWeapon(weapon);
+        }
     }
 }
