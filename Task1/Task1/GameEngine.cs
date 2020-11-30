@@ -24,9 +24,9 @@ namespace Task1
 
         public bool MovePlayer(Character.Movement direction)
         {
-            bool move = false;
+            bool move = true;
 
-            bool looted = false;
+            /*bool looted = false;
             if (direction == Character.Movement.Nothing)
             {
                 looted = false;
@@ -39,7 +39,7 @@ namespace Task1
             if (looted == true)
             {
                 
-            }
+            }*/
             return move;
         }
 
@@ -50,7 +50,7 @@ namespace Task1
             {
                 for (int j = 0; j < Map.Height; j++)
                 {
-                    output += Map.Maptiles[j, i];
+                    output += Map.Maptiles[i, j];
                 }
                 output += "\n";
             }

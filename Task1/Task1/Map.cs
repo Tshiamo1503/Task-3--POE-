@@ -20,7 +20,7 @@ namespace Task1
         {
             this.width = randomize.Next(minWidth, maxWidth + 1);
             this.height = randomize.Next(minHeight, maxHeight + 1);
-            this.Maptiles = new char[height,width];
+            this.Maptiles = new char[width,height];
             this.enemies = new Enemy[numEnemies];
             this.Items = new Item[goldamount+numWeapons];
 
@@ -63,11 +63,11 @@ namespace Task1
                 {
                     if (j == 0 || i == 0 || j == Height - 1 || i == Width - 1)
                     {
-                        Maptiles[j,i]= 'x';
+                        Maptiles[i,j]= 'x';
                     }
                     else
                     {
-                        Maptiles[j, i]='.';
+                        Maptiles[i, j]='.';
                     }
                 }
             }
@@ -79,14 +79,14 @@ namespace Task1
             {
                 case Tile.TileType.Hero://====================================================Hero
                     hero = new Hero(10,0,0);
-                    while (Maptiles[hero.Y,hero.X] != '.')
+                    while (Maptiles[hero.X,hero.Y] != '.')
                     {
                         Random ran = new Random();
                         hero.X = ran.Next(0, width);
                         hero.Y = ran.Next(0, Height);
                     }
                     Character character = hero;
-                    Maptiles[hero.Y,hero.X]= 'H';
+                    Maptiles[hero.X,hero.Y]= 'H';
                     hero = new Hero(10, hero.X, hero.Y);
                     return hero;
 
@@ -96,50 +96,50 @@ namespace Task1
                     {
                         case 0:
                             Enemy enemy = new Goblin(0, 0);
-                            while (Maptiles[enemy.Y, enemy.X] != '.')
+                            while (Maptiles[enemy.X, enemy.Y] != '.')
                             {
                                 Random ran = new Random();
                                 enemy.X = ran.Next(0, width);
                                 enemy.Y = ran.Next(0, Height);
                             }
-                            Maptiles[enemy.Y, enemy.X] = 'G';
+                            Maptiles[enemy.X, enemy.Y] = 'G';
                             return enemy;
                         case 1:
                             Enemy enemy1 = new Mage(0, 0);
-                            while (Maptiles[enemy1.Y, enemy1.X] != '.')
+                            while (Maptiles[enemy1.X, enemy1.Y] != '.')
                             {
                                 Random ran = new Random();
                                 enemy1.X = ran.Next(0, width);
                                 enemy1.Y = ran.Next(0, Height);
                             }
-                            Maptiles[enemy1.Y, enemy1.X] = 'M';
+                            Maptiles[enemy1.X, enemy1.Y] = 'M';
                             return enemy1;
                         case 2:
                             Enemy enemy2 = new Leader(0, 0);
-                            while (Maptiles[enemy2.Y, enemy2.X] != '.')
+                            while (Maptiles[enemy2.X, enemy2.Y] != '.')
                             {
                                 Random ran = new Random();
                                 enemy2.X = ran.Next(0, width);
                                 enemy2.Y = ran.Next(0, Height);
                             }
-                            Maptiles[enemy2.Y, enemy2.X] = 'L';
+                            Maptiles[enemy2.X, enemy2.Y] = 'L';
                             return enemy2;
 
                         default:
                             Enemy enemyG = new Goblin(0, 0);
-                            while (Maptiles[enemyG.Y, enemyG.X] != '.')
+                            while (Maptiles[enemyG.X, enemyG.Y] != '.')
                             {
                                 Random ran = new Random();
                                 enemyG.X = ran.Next(0, width);
                                 enemyG.Y = ran.Next(0, Height);
                             }
-                            Maptiles[enemyG.Y, enemyG.X] = 'G';
+                            Maptiles[enemyG.X, enemyG.Y] = 'G';
                             return enemyG;
                     }
 
                 case Tile.TileType.Gold://====================================================Gold
                     Gold gold = new Gold(0, 0);
-                    while (Maptiles[gold.Y, gold.X] != '.')
+                    while (Maptiles[gold.X, gold.Y] != '.')
                     {
                         Random ran = new Random();
                         gold.X = ran.Next(0, width);
@@ -181,7 +181,7 @@ namespace Task1
 
                 default:
                     Hero hero1 = new Hero(10, 0, 0);
-                    while (Maptiles[hero1.Y, hero1.X] != '.')
+                    while (Maptiles[hero1.X, hero1.Y] != '.')
                     {
                         Random ran = new Random();
                         hero1.X = ran.Next(0, width);

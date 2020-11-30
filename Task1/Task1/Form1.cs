@@ -35,11 +35,11 @@ namespace Task1
 
         private void btnUp_Click(object sender, EventArgs e)
         {
-            if (true)
-            {
-
-            }
             Game.MovePlayer(Character.Movement.up);
+
+            Game.Map.Maptiles[Game.Map.hero.Y - 1, Game.Map.hero.X] = 'H';
+
+            lblMap.Text = Game.ToString();
         }
 
         private void btnLeft_Click(object sender, EventArgs e)
